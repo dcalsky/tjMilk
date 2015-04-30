@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>微同济 | 选课助手</title>
+  <link rel="stylesheet" href="css/jquery-ui.min.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/xuanke.css">
+      <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+</head>
+<body>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">微同济</a>
+      <p id="num" class="navbar-text"></p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="person">个人资料 </a></li>
+        <li><a id="quit" >退出</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div id="logo" class="logo">
+    <div class="text-vcenter">
+      <h1>Hey,</h1>
+      <h2>想知道哪节课更容易拿<b style="font-size:50px;">优</b>吗?</h2>
+    <br/>
+      <a href="#begin" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-fire"></span>Begin</a>
+    </div>
+  </div>
+
+<div class="container " id="main">
+<ul id="myTab" class="nav nav-tabs">
+   <li class="active ">
+      <a href="#search_box" data-toggle="tab">找课<span class="glyphicon glyphicon-fire"></span></a>
+   </li>
+   <li><a href="#submit_box" data-toggle="tab">提供信息</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+     <!--第一部分-->
+   <div class="tab-pane fade in active" id="search_box">
+      <label for="search_input" style="float:left;font-size:18px;">课名：</label>
+      <div class="input-group col-md-4 col-sm-6">
+         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+         <input id="search_input" type="text" class="form-control" placeholder="请输入关键字">
+      </div>
+  <label>任课老师：</label>
+    <select id="select1">
+  </select>
+  <br/>
+    <button id="find" class="btn btn-success btn-lg col-sm-6 col-xs-12"  type="button" >
+                     寻找评价
+    </button>
+<table id="table" class="display hidden" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>点名频率</th>
+            <th>拿优难度</th>
+            <th>是否固定座位</th>
+            <th>该同学的成绩</th>
+            <th>个人评价</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>No</th>
+            <th>点名频率</th>
+            <th>拿优难度</th>
+            <th>是否固定座位</th>
+            <th>该同学的成绩</th>
+            <th>个人评价</th>
+        </tr>
+    </tfoot>
+    <tbody id="tbody">
+    </tbody>
+</table>
+  </div>
+
+  
+   <!--第二部分-->
+   <div class="tab-pane fade" id="submit_box">
+      <label for="search_input" style="float:left;font-size:18px;">课名：</label>
+      <div class="input-group col-md-4 col-sm-6">
+         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+         <input id="search_input" type="text" class="form-control" placeholder="请输入关键字">
+      </div>
+  <label>任课老师：</label>
+    <select id="select2">
+  </select>
+  <form class="form-inline">
+  <div class="form-group">
+     <label>是否固定座位</label>
+   <label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true"> 是
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false"> 否
+</label>
+  </div>
+    <div class="form-group">
+      <div class="demo">
+        <div id="checkname_hint" class="hint"></div>
+            <div id="checkname" class="target-demo"></div>
+          </div>
+  </div>
+      <div class="form-group">
+      <div class="demo">
+        <div id="givesroce_hint" class="hint"></div>
+            <div id="givesroce" class="target-demo"></div>
+          </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">个人评价</label>
+      <textarea id="comment" class="form-control" rows="3"></textarea>
+  </div>
+</form>
+
+   </div>
+
+</div>
+</div>
+
+  <div id="about" class="pad-section">
+    <div class="container">
+      <h2 class="text-center">使用说明</h2> <hr />
+    </div>
+  </div>
+
+ <!--ALL script-->
+
+   <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+      <script src="js/jquery.cookie.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/classname.js"></script>
+       <script src="js/jquery.dataTables.min.js"></script>
+       <script type="text/javascript" src="js/jquery.raty.min.js"></script>
+    <script src="js/xuanke.js"></script>
+</body>
+</html>

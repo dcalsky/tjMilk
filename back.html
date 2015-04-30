@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+              <script src="js/jquery-1.11.2.min.js"></script>
+            <script src="js/jquery.dataTables.min.js"></script>
+    <title>微同济 | 订奶后台</title>
+  </head>
+  <body>
+    <table id="table" class="display" cellspacing="0" width="100%">
+    <thead id="thead">
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+<button type="submit" id="all">全部</button>
+<button type="submit" id="nopayed">未付款</button>
+<button type="submit" id="today">今天要送的名单</button>
+<button type="submit" id="tomorrow">明天要送的名单</button>
+<br/>
+<p>警告：①请勿在24:00左右的时间使用</p>
+<!--
+<button type="submit" id="get">收到账款</button>
+<button type="submit" id="delet">删除订单</button>
+-->
+        <script>
+        var pay_page=false;
+        $(function() {
+        $("#all").click(all);
+        $("#nopayed").click(nopayed);
+        $("#today").click(today);
+        $("#tomorrow").click(tomorrow);
+        //$("#get").click(get);
+        //$("#delet").click(delet);
+
+    });
+function all(){
+            $("#tbody").empty();
+            $("#thead").empty();
+            $("#thead").append("<tr><th>姓名</th><th>寝室楼</th><th>寝室号</th><th>品种</th><th>模式</th><th>一次多少袋</th><th>应付金额</th><th>开始日期</th><th>结束日期</th><th>手机号</th><th>是否已付款</th></tr>");
+            var data={action:"putout"};
+                    $.post("php/milk.php",data,function(data){
+                        var temp=JSON.parse(data);
+                        for (var i=0;i<temp.length;i++){
+                        $("#tbody").append("<tr><td>"+temp[i]['name']+"</td>"+"<td>"+temp[i]['bld']+"</td>"+"<td>"+temp[i]['room']+"</td>"+"<td>"+temp[i]['milk']+"</td>"+"<td>"+temp[i]['mode']+"</td>"+"<td>"+temp[i]['number']+"</td>"+"<td>"+temp[i]['total']+"</td>"+"<td>"+temp[i]['start']+"</td>"+"<td>"+temp[i]['end']+"</td>"+"<td>"+temp[i]['tel']+"</td>"+"<td>"+temp[i]['pay']+"</td></tr>");
+                    }
+                    //$('#table').dataTable();
+                    pay_page=false;
+                    });
+}
+function nopayed(){
+            $("#tbody").empty();
+            $("#thead").empty();
+            $("#thead").append("<tr><th>姓名</th><th>寝室楼</th><th>寝室号</th><th>品种</th><th>模式</th><th>一次多少袋</th><th>共付金额</th><th>开始日期</th><th>结束日期</th><th>手机号</th><th>Get</th></tr>");
+            var data={action:"putout"};
+                    $.post("php/milk.php",data,function(data){
+                        var temp=JSON.parse(data);
+                        for (var i=0;i<temp.length;i++){
+                            if(temp[i]['pay']=="0"){
+                        $("#tbody").append("<tr><td>"+temp[i]['name']+"</td>"+"<td>"+temp[i]['bld']+"</td>"+"<td>"+temp[i]['room']+"</td>"+"<td>"+temp[i]['milk']+"</td>"+"<td>"+temp[i]['mode']+"</td>"+"<td>"+temp[i]['number']+"</td>"+"<td>"+temp[i]['total']+"</td>"+"<td>"+temp[i]['start']+"</td>"+"<td>"+temp[i]['end']+"</td>"+"<td>"+temp[i]['tel']+"</td><td><button onClick=\"get('"+temp[i]['name']+"','"+temp[i]['room']+"','"+temp[i]['total']+"','"+temp[i]['mode']+"'"+")\">Get</button></td></tr>");
+                        }
+                    }
+                    //$('#table').dataTable();
+                    pay_page=true;
+                    });
+}
+function get(a,b,c,d){
+    if(pay_page==true){
+        var data={
+            action:"get",
+            name:a,
+            room:b,
+            total:c,
+            mode:d
+        };
+        console.log(data["name"]);
+         $.post("php/milk.php",data,function(data){
+            if(data=="ok")
+                alert("ok");
+            pay_page=false;
+         });
+}else{
+    alert("请重新获取未付款的名单！");
+}
+}
+function delet(){
+    if(confirm("确认要删除？")){ 
+    for (var i=0;i<$("#tbody").find("tr").length;i++){
+        var data={
+            action:"delete",
+            name:$("#tbody").find("tr").eq(i).find("td").eq(0).text(),
+            room:$("#tbody").find("tr").eq(i).find("td").eq(2).text(),
+            total:$("#tbody").find("tr").eq(i).find("td").eq(6).text(),
+        };
+         $.post("php/milk.php",data,function(data){
+            if(data=="ok")
+                alert("ok");
+            pay_page=false;
+         });
+        }
+    }
+}
+function today(){
+            $("#tbody").empty();
+            $("#thead").empty();
+            var allow;
+            $("#thead").append("<tr><th>姓名</th><th>寝室楼</th><th>寝室号</th><th>品种</th><th>模式</th><th>一次多少袋</th><th>开始日期</th><th>结束日期</th><th>手机号</th></tr>");
+                        var data={action:"putout"};
+                    $.post("php/milk.php",data,function(data){
+                        var temp=JSON.parse(data);
+                        for (var i=0;i<temp.length;i++){
+                            var start=transferStrToDate(temp[i]['start']);
+                            var today=new Date();
+                          if(today>start){
+                            var weekday=new Array(7);
+                            weekday[0]=0;
+                            weekday[1]=1;
+                            weekday[2]=2;
+                            weekday[3]=3;
+                            weekday[4]=4;
+                            weekday[5]=5;
+                            weekday[6]=6;
+                            switch (temp[i]['mode']){  
+                                case "每天送":allow=true;break;
+                                case "单号送":{
+                                    allow=false;
+                                        if(today.getDate() % 2 ==1)
+                                            allow=true;
+                                            break;
+                                        }
+                                case "双号送":{
+                                    allow=false;
+                                        if(today.getDate() % 2 ==0)
+                                            allow=true;
+                                            break;
+                                        }
+                                case "每三天送":{
+                                    allow=false;
+                                            if(dateDiff(today,start) % 2 ==0)
+                                                allow=true;
+                                            break;
+                                        }
+                                case "工作日送":{
+                                    allow=false;
+                                    if(weekday[today.getDate()] !=0 && weekday[today.getDate()]!=6)
+                                        allow=true;
+                                            break;
+                                        }
+                                case "周末送":{
+                                    allow=false;
+                                    if(weekday[today.getDate()] ==0 || weekday[today.getDate()]==6)
+                                        allow=true;
+                                            break;
+                                        }
+                            }
+                            if(allow==true && temp[i]['pay']=="1")
+                        $("#tbody").append("<tr><td>"+temp[i]['name']+"</td>"+"<td>"+temp[i]['bld']+"</td>"+"<td>"+temp[i]['room']+"</td>"+"<td>"+temp[i]['milk']+"</td>"+"<td>"+temp[i]['mode']+"</td>"+"<td>"+temp[i]['number']+"</td>"+"<td>"+temp[i]['start']+"</td>"+"<td>"+temp[i]['end']+"</td>"+"<td>"+temp[i]['tel']+"</th></tr>");
+                        }
+                        //$('#table').dataTable();
+                   }
+                    });
+}
+function tomorrow(){
+            $("#tbody").empty();
+            $("#thead").empty();
+            var allow;
+            $("#thead").append("<tr><th>姓名</th><th>寝室楼</th><th>寝室号</th><th>品种</th><th>模式</th><th>一次多少袋</th><th>开始日期</th><th>结束日期</th><th>手机号</th></tr>");
+                        var data={action:"putout"};
+                    $.post("php/milk.php",data,function(data){
+                        var temp=JSON.parse(data);
+                        for (var i=0;i<temp.length;i++){
+                            var start=transferStrToDate(temp[i]['start']);
+                            var tomorrow=new Date();
+                          if(tomorrow>start){
+                            var weekday=new Array(7);
+                            weekday[0]=0;
+                            weekday[1]=1;
+                            weekday[2]=2;
+                            weekday[3]=3;
+                            weekday[4]=4;
+                            weekday[5]=5;
+                            weekday[6]=6;
+                            switch (temp[i]['mode']){
+                                case "每天送":allow=true;break;
+                                case "单号送":{
+                                    allow=false;
+                                        if((tomorrow.getDate()+1) % 2 ==1)
+                                            allow=true;
+                                            break;
+                                        }
+                                case "双号送":{
+                                    allow=false;
+                                        if((tomorrow.getDate()+1) % 2 ==0)
+                                            allow=true;
+                                            break;
+                                        }
+                                case "工作日送":{
+                                    allow=false;
+                                            if((dateDiff(tomorrow,start)+1) % 2 ==0)
+                                                allow=true;
+                                            break;
+                                        }
+                                case "双休停送":{
+                                    allow=false;
+                                    if(weekday[tomorrow.getDate()+1] !=0 && weekday[tomorrow.getDate()+1]!=6)
+                                        allow=true;
+                                            break;
+                                        }
+                                case "周末送":{
+                                    allow=false;
+                                    if(weekday[tomorrow.getDate()+1] ==0 || weekday[tomorrow.getDate()+1]==6)
+                                        allow=true;
+                                            break;
+                                        }
+                            }
+
+                            if(allow==true && temp[i]['pay']=="1")
+                        $("#tbody").append("<tr><td>"+temp[i]['name']+"</td>"+"<td>"+temp[i]['bld']+"</td>"+"<td>"+temp[i]['room']+"</td>"+"<td>"+temp[i]['milk']+"</td>"+"<td>"+temp[i]['mode']+"</td>"+"<td>"+temp[i]['number']+"</td>"+"<td>"+temp[i]['start']+"</td>"+"<td>"+temp[i]['end']+"</td>"+"<td>"+temp[i]['tel']+"</th></tr>");
+                        }
+                        //$('#table').dataTable();
+                   }
+                    });
+}
+function  dateDiff(date1,date2){ 
+        tt= parseInt((date1-date2)/1000/60/60/24);
+        return tt;
+}
+function transferStrToDate(dateStr){
+    var strSeparator = "-"; //日期分隔符
+    var strSeparator2 ="/";
+    var strSeparator_hour = ":";
+    if(dateStr=="")
+    {
+        //alert("输入日期格式错误，操作失败");
+    }
+    else
+    {
+        var oDate1= dateStr.split(strSeparator);
+        if(oDate1.length==1){
+            oDate1 = dateStr.split(strSeparator2);
+        }
+        if(oDate1[2].length>4){
+            var tmpStr = oDate1[2].substring(2);
+            var tmpStr1 = tmpStr.split(strSeparator_hour);
+            var date_value = new Date(oDate1[0], oDate1[1]-1, oDate1[2].substring(0,2));
+            date_value.setHours(tmpStr1[0],tmpStr1[1],tmpStr1[2],0);
+            return date_value;
+        }
+        
+        var date_value = new Date(oDate1[0], oDate1[1]-1, oDate1[2]);
+    
+        return date_value;
+    }
+    }
+</script>
+
+    </body>
+    </html>

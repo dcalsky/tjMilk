@@ -1,0 +1,79 @@
+
+.demo .target-demo { display: inline-block; vertical-align: middle;}
+
+.demo div.hint { background-color: #EEEEEE; border-radius: 5px; color: #333; display: inline-block; height: 27px; font-size: 1.3em; text-align: center; width: 100px; vertical-align: middle }
+
+.demo label { color: #444; font-size: 1.5em; letter-spacing: .7px; margin-right: 5px; padding-left: 6px; vertical-align: middle }
+
+.demo a.run { font-size: 1.5em; margin-left: 5px; letter-spacing: .7px; vertical-align: middle }
+
+  body {
+    font-family: "微软雅黑";
+}
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* 防止水平滚动条 */
+    overflow-x: hidden;
+  }
+  /* IE 6 不支持 max-height
+   * 我们使用 height 代替，但是这会强制菜单总是显示为那个高度
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+  .text-vcenter {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: #FFF;
+}
+.text-vcenter h1 {
+  font-size: 4.5em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+#logo {
+  background: url(../img/logo5.jpg) no-repeat center center fixed; 
+  display: table;
+  height: 500px;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#main{
+    background: #EEEEEE; 
+  display: table;
+  height: 500px;
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.pad-section {
+  padding: 50px 0;
+}
+#about {
+  background-color: #306d9f;
+  color: #ffffff;
+}
+.input-group{
+  margin:8px 0 5px 0;
+}
+button{
+  margin:10px 0 10px 0;
+}
+.tab-content label{
+  color: #999999;
+}
+
+#combobox{
+  margin: 0 0 10px 0;
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微同济 | 订奶</title>
+    <meta name="description" content="Dragonfruit is one of the free HTML5 Templates from templatemo. It is a parallax layout with jQuery slider, events, and timeline." />
+    <meta name="author" content="templatemo">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="./favicon.png" />       
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Camera -->
+    <link href="css/camera.css" rel="stylesheet">
+    <!-- Template  -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link href="css/templatemo_style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<div class="banner" id="templatemo_banner_slide">
+    <ul>
+        <li class="templatemo_banner_slide_01">
+            <div class="slide_caption">
+                <h1>用每一滴浓郁浇灌纯正人生</h1>
+            </div>
+        </li>
+        <li class="templatemo_banner_slide_02">
+            <div class="slide_caption">
+                <h1>光明的每一天，从每天一杯光明开始</h1>
+            </div>
+        </li>
+        <li class="templatemo_banner_slide_03">
+            <div class="slide_caption">
+                <h1>我们立志成为奶牛们的搬运工<br/>为奶牛铺平从乳房到寝室的最后几十公里</h1>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container_wapper">
+    <div id="templatemo_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-4 templatemo_logo">
+                <a rel="nofollow" href="#">
+                    <h1 id="logo_text">WeTongji<span>Milk</span></h1>
+                </a>
+            </div>
+            <div class="col-sm-8 hidden-xs">
+                <ul class="nav nav-justified">
+                    <li><a href="#templatemo_banner_slide">楔子</a></li>
+                    <li><a href="#templatemo_about">简介</a></li>
+                    <li><a href="#templatemo_contact">订购</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="templatemo_about" class="container_wapper">
+    <div class="container-fluid">
+        <h1>简介</h1>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap mission"><i class="fa fa-rocket"></i></div>
+            <h2><b>牛奶来自</b></h2>
+            <p>光明<br/>明治 </p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap product"><i class="fa fa-cubes"></i></div>
+            <h2><b>订购规则</b></h2>
+            <p>鲜奶在下单后第三天开始配送<br/>酸奶在下单后第四天开始配送
+</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap testimonial"><i class="fa fa-bar-chart-o"></i></div>
+            <h2><b>保证</b></h2>
+            <p>工作日早上七点四十前送到<br/>周末早上八点一十前送到
+</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap statistic"><i class="fa fa-comments"></i></div>
+            <h2><b>微信平台</b></h2>
+            <p>同济校园订奶</p>
+        </div>
+        <div class="clearfix testimonial_top_bottom_spacer"></div>
+
+    </div>
+</div><!--templatemo_about-->
+
+<div id="templatemo_contact" class="container_wapper">
+    <div class="container-fluid">
+        <h1>订购平台</h1>
+        <div class="col-md-4">
+            <h2>我们的平台</h2>
+            <img src="img/qr.png"  style="height:300px;width:300px;" class="img-thumbnail">
+            <br>
+            <p><strong>Email:</strong>dcalsky@qq.com<br /><strong>Phone:</strong> 18217757931<br /><strong>Website:</strong> www.ttjj666.com<br /><strong>Address:</strong> 上海市四平路1239号同济大学</p>
+            
+        </div>
+        <form id="form" action="#" method="post" class="col-md-8 registerform">
+            <div class="row">
+                <div class="col-sm-12">
+                <h2>订单</h2>
+                </div>
+                <div class="col-sm-3">
+                    <p>姓名</p>
+                    <input class="form-control inputxt need" type="text" name="name" id="name" placeholder="姓名" datatype="z2-4" nullmsg="请输入中文名" errormsg="中文名为2~4个中文字符"/>
+                    <div id="tip1" class="Validform_checktip"></div>
+                </div>
+                <div class="col-sm-3">
+                    <p>寝室<b>楼</b></p>
+                     <select id="bld" class="form-control" style="height:50px;">
+                        <optgroup label="男生宿舍">
+                            <option >西南一</option>
+                            <option >西南七</option>
+                            <option >西南八</option>
+                            <option >西南十</option>
+                            <option >西南十一</option>
+                            <option >西北一</option>
+                            <option >西北三</option>
+                            <option >西北五</option>
+                        </optgroup>
+                        <optgroup label="女生宿舍">
+                            <option >西南二</option>
+                            <option >西南三</option>
+                            <option >西南九</option>
+                            <option >西南十二</option>
+                            <option >西北二</option>
+                            <option >学三楼</option>
+                            <option >学四楼</option>
+                            <option >学五楼</option>
+                        </optgroup>
+                        </select>
+                </div>
+                <div class="col-sm-3">
+                    <p>寝室<b>号</b></p>
+                    <input class="form-control inputxt need" type="text" name="room" id="room" placeholder="寝室号"  datatype="*2-6" nullmsg="请输入寝室号" errormsg="寝室号应为2~6个字符"/>
+                    <div id="tip3" class="Validform_checktip"></div>
+                </div>
+                <div class="col-sm-3">
+                    <p>手机号码</p>
+                    <input class="form-control inputxt mobile need" type="text" name="tel" id="tel" placeholder="联系电话" ignore="ignore" datatype="m" errormsg="手机号码格式不对" />
+                    <div id="tip2" class="Validform_checktip"></div>
+                </div>
+                <div class="col-sm-6">
+                    <p>品种</p>
+                    <select id="milk" class="form-control" style="width:100%;height:50px;">
+                        <optgroup label="----------------------鲜奶----------------------">
+                        <optgroup id="鲜奶" label="鲜奶 · 基础鲜奶">
+                            <option value="3.8">小口瓶鲜牛奶 (220ML)</option>
+                            <option value="4.8">新鲜杯光明高钙牛奶 (200ML)</option>
+                            <option value="4.8">新鲜杯光明纯鲜牛奶 (200ML)</option>
+                            <option value="4.8">新鲜杯光明香浓牛奶 (200ML)</option>
+                            <option value="7.9">新鲜屋纯鲜牛奶 (500ML)</option>
+                            <option value="4.8">新鲜杯低脂强化钙牛奶 (200ML)</option>
+                            <option value="14.2">新鲜屋纯鲜牛奶 (980ML)</option>
+                            <option value="3.4">新鲜包高品鲜牛奶 (200ML)</option>
+                            <option value="3.4">新鲜包高品高钙奶 (200ML)</option>
+                            <option value="4.3">新鲜屋鲜牛奶 (200ML)</option>
+                            <option value="4.8">新鲜杯脱脂牛奶（减脂90％）(200ML)</option>
+                            <option value="16.2">新鲜屋脱脂牛奶（减脂90％）(950ML)</option>
+                            <option value="4.5">高品AD奶 (195ML)</option>
+                            <option value="4.5">高品高钙奶（低脂） (195ML)</option>
+                            <option value="4.5">高品高钙奶（全脂） (195ML)</option>
+                            <option value="22.2">1.5 L桶装鲜牛奶 (1500ML)</option>
+                            <option value="13.2">三岛鲜牛奶 (950ML)</option>
+                        </optgroup>
+                        <optgroup id="鲜奶" label="鲜奶 · 致优">
+                            <option value="30.3">致优全鲜乳 (950ML)</option>
+                            <option value="8.5">致优全鲜乳尊享杯 (260ML)</option>
+                        </optgroup>
+                        <optgroup  id="鲜奶" label="鲜奶 · 优倍">
+                            <option value="18.8">新鲜屋优倍 (950ML)</option>
+                            <option value="5.2">新鲜屋优倍 (200ML)</option>
+                            <option value="10.4">新鲜屋优倍 (500ML)</option>
+                            <option value="5.2">新鲜杯优倍 (200ML)</option>
+                            <option value="5.4">新鲜杯（0脂）优倍 (200ML)</option>
+                            <option value="26.5">新鲜屋优倍 (1350ML)</option>
+                            <option value="20.5">新鲜屋优倍（0脂） (950ML)</option>
+                            <option value="5.9">优倍随手杯 (260ML)</option>
+                        </optgroup>
+                        <optgroup  id="鲜奶" label="鲜奶 · 光明1号">
+                            <option value="4.5">光明1号香浓牛奶 (220ML)</option>
+                            <option value="4.5">光明1号高钙牛奶 (220ML)</option>
+                            <option value="4.5">嘟嘟儿童高品质牛奶(200ML)</option>
+                        </optgroup>
+                        </optgroup>
+                        <optgroup label="----------------------酸奶----------------------">
+                        <optgroup  id="酸奶" label="酸奶 · 基础酸奶">
+                            <option value="9.0">490风味酸牛奶（原味） (490G)</option>
+                            <option value="4.2">芦荟风味酸牛奶 (125G)</option>
+                            <option value="15.2">980基础风味酸牛奶（原味）(980G)</option>
+                            <option value="4.2">190基础风味酸牛奶（原味）(190G)</option>
+                            <option value="14.8">950G红枣风味酸牛奶 (950G)</option>
+                            <option value="15.6">低脂无蔗糖风味酸牛奶 (980G)</option>
+                            <option value="4.8">红枣新鲜杯风味酸牛奶 (200G)</option>
+                            <option value="12.0">风味酸牛奶八连杯经济装（原味） (800G)</option>
+                        </optgroup>
+                        <optgroup  id="酸奶" label="酸奶 · 如实">
+                            <option value="7.5">如实无添加发酵乳(135G)</option>
+                        </optgroup>
+                        <optgroup id="酸奶"  label="酸奶 · 畅优">
+                            <option value="4.8">新鲜杯畅优 (200G)</option>
+                            <option value="12.4">畅优580g发酵乳（草莓味）(580G)</option>
+                            <option value="12.4">畅优580G发酵乳（原味）(580G)</option>
+                            <option value="4.8">新鲜杯畅优（低脂） (200G)</option>
+                            <option value="15.5">畅优发酵乳八连杯（草莓味）(800G)</option>
+                            <option value="15.5">畅优发酵乳八连杯(原味) (100G)</option>
+                            <option value="5.2">畅优发酵乳（草莓味） (190G)</option>
+                            <option value="5.2">畅优风味发酵乳·优酪乳 (190G)</option>
+                            <option value="3.8">植物活力乳酸菌饮品（原味）(180ML)</option>
+                            <option value="6.8">植物活力乳酸菌饮品（原味）(418ML)</option>
+                            <option value="6.8">植物活力乳酸菌饮品（芦荟味）(418ML)</option>
+                            <option value="4.2">植物活力乳酸菌饮品(原味)(250ML)</option>
+                        </optgroup>
+                        <optgroup  id="酸奶" label="酸奶 · 健能">
+                            <option value="14.2">儿童健能六连杯（原味）(600G)</option>
+                            <option value="4.5">健能KidsTT罐原味发酵乳(160G)</option>
+                            <option value="4.8">AB100健能杯(搅拌型) (200G)</option>
+                            <option value="14.8">健能AB100八连杯（原味）(800G)</option>
+                            <option value="14.8">健能AB100八连杯（草莓味）(800G)</option>
+                        </optgroup>
+                        <optgroup  id="酸奶" label="酸奶 · 白雪">
+                            <option value="4.8">白雪风味酸牛奶（低脂）(200G)</option>
+                            <option value="4.8">白雪风味酸牛奶（无蔗糖）(200G)</option>
+                            <option value="4.5">白雪高钙风味酸牛奶 (200G)</option>
+                            <option value="4.5">白雪脱脂风味酸牛奶 (200G)</option>
+                            <option value="4.5">白雪低脂风味酸牛奶 (200G)</option>
+                        </optgroup>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <p>配送模式</p>
+                    <select id="mode" class="form-control" style="width:100%;height:50px;">
+                            <option value="66-每日送_1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31_M">每天送 </option>
+                            <option value="64-逢双送_2,4,6,8,10,12,14,16,18,20,22,24,26,28,30_M">双号送 </option>
+                            <option value="63-逢单送_1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31_M">单号送 </option>
+                            <option value="49-每三天送_3,6,9,12,15,18,21,24,27,30_M">每三天送 </option>
+                            <option value="73-工作日送_1,2,3,4,5_W">工作日送</option>
+                            <option value="65-周末送_7,6_W">周末送 </option>
+                      </select> 
+                </div>
+                <div class="col-sm-3">
+                    <p>数量</p>
+                    <div  class="input-group ">
+                          <span class="input-group-btn">
+                            <button style="margin-top:0;" class="btn btn-default" id="reduce" type="button">-</button>
+                          </span>
+                          <input class="form-control text-center" type="text" class="form-control text-center" readonly="readonly" id="number" value="2" >
+                            <span class="input-group-btn">
+                                <button style="margin-top:0;" class="btn btn-default" id="plus" type="button">+</button>
+                             </span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <p>开始日期</p>
+                    <input datatype="*6-16" nullmsg="请选择开始日期" class="Wdate form-control"  type="text"  name="d1" id="d1"onFocus="
+                      var d1=$dp.$('d1');
+                      WdatePicker({
+                      onpicked:function(){d2.focus();},
+                      maxDate:'#F{$dp.$D(\'d2\',{d:-6})}',
+                      isShowClear:false,
+                      minDate:'%y-%M-{%d+'+delay+'}',
+                      readOnly:true,
+                      dchanging:day1
+                    })"/>
+                    <div id="tip4" class="Validform_checktip"></div>
+                </div>
+                <div class="col-sm-6">
+                    <p>结束日期</p>
+                    <input datatype="*6-16" nullmsg="请选择结束日期" class="Wdate form-control" type="text"  name="d2" id="d2" onFocus="
+                        WdatePicker({
+                        minDate:'#F{$dp.$D(\'d1\',{d:6})}',
+                        isShowClear:false,
+                        readOnly:true,
+                        dchanging:day2
+                      })"/>
+                      <div id="tip5" class="Validform_checktip"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div id="well" >
+                        <p id="milk_p"></p>
+                         <p id="number_p"></p>
+                         <p id="mode_p"></p>
+                         <p id="room_p"></p>
+                         <p id="day"></p>
+                        <p style="color:red;" id="total"></p>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+                <div class="col-xs-12 col-sm-7 col-sm-offset-5">
+                    <button type="submit" id="submit" class="btn btn-success btn-lg">立即购买</button>
+                </div>
+        <div id="success" class="hidden">
+            <h1>感谢订购我们的产品！</h1>
+
+                <h2 class="text-center">我们的支付宝账号: <b class="text-success">tjdingnai@163.com</b> </h2><br/>
+                <h2 class="text-center">收款人:<b class="text-success">唐浩彬</b> </h2><br/>
+                <h2   class="text-center">应付款：<b id="messages" class="text-danger"></b >元</h2>
+                <h2   class="text-center">转账后以便我们尽快为您服务</h2>
+
+                <div class="col-xs-12 col-sm-7 col-sm-offset-5">
+                    <button  id="back" class="btn btn-success btn-lg">返回</button>
+                </div>
+        </div>
+    </div>
+</div>
+<div id="templatemo_footer">
+    <div>
+        <p>Copyright &copy; 2015.周左左 All rights reserved.</p>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.singlePageNav.min.js"></script>
+<script src="js/unslider.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/WdatePicker.js"></script>
+<script src="js/datecalculate.js"></script>
+<script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+<script src="js/templatemo_script.js"></script>
+
+</body>
+</html>

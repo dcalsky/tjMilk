@@ -1,0 +1,41 @@
+body{
+	padding-bottom:70px;
+	font-family: "微软雅黑";
+	background-color: #EEEEEE;
+}
+ .navbar-header #name{
+	font-size: 15px;
+	color: white;
+}
+.navbar-right button{
+	margin-top: 2px;
+}
+
+.footer{
+	height: 20px;
+	background-color: #f5f5f5;
+}
+
+.carousel{
+	max-height:500px;
+	background-color: #000;
+}
+.carousel .item{
+	max-height:500px;
+	background-color: #000;
+}
+.carousel-inner img{
+	height: 100%;
+}
+.carousel-caption p{
+	margin-top: 10px;
+	margin-bottom: 8px;
+	font-size: 21px;
+
+}
+.logo button{
+	margin: 10px 0 10px 0;
+}
+.navbar{
+	margin: 0;
+}
